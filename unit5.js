@@ -20,22 +20,102 @@ pushPopAlg()
 // 2.	Как на базе одного массива А[1…n] реализовать две стека 
 // суммарной длины не больше n? Операции Push Pop должны выполняться за время О[1]
 
-// 3.	Следуя образцу рис 11.2 покажите работу операции Exqueue(Q,4), 
-// Exqueue (Q,1), Exqueue (Q,4), Dexqueue (Q,1), Exqueue (Q,8) и Dexqueue (Q) 
+function arrToStack (arr = [1,2,3,4]) {
+    let arr1 = []
+    let arr2 = []
+
+    for (let i = 0; i < arr.length; i =+ 1){
+        if ( arr.indexOf(i) % 2 !== 0){
+            arr1.push(arr[i])
+        }
+        else  {
+            arr2.push(arr[i])
+        }
+    }4
+
+    return arr1, arr2
+}
+arrToStack()
+
+// 3.	Следуя образцу рис 11.2 покажите работу операции Enqueue(Q,4), 
+// Enqueue (Q,1), Enqueue (Q,4), Dequeue (Q,1), Enqueue (Q,8) и Dequeue (Q) 
 // на очереди реализованной с помощью массива Q(1…5) Первоначально очередь пуста.
 
-// 4.	Перепишите процедуры Exqueue  Dequeue, предусмотрев проверку на случаай 
+function que (arr = [1,2,3,4,5]) {
+    arr.push(4)
+    arr.push(1)
+    arr.push(4)
+    arr.shift()
+    arr.push(8)
+    arr.shift()
+
+    return arr    
+}
+
+que()
+
+// 4.	Перепишите процедуры Enqueue и Dequeue, предусмотрев проверку на случаай 
 // переполнения или underflow
 
+function queChech (arr = [1,2,3,4,5]){
+     
+    if (arr.length === 0 ){
+        console.log ('Underflow')
+    }
+    else {
+        arr.shift()
+    }
 
-// 5.	Exqueue (Q,1)Cntr позволяет добавлять и удалять элементы только с одного конца. 
+    if (arr.length >= 4294967295){
+        console.log ('Overload')
+    }
+    else {
+        arr.push(8)
+    }
+
+    return arr
+}
+
+queChech()
+
+// 5.	Стек позволяет добавлять и удалять элементы только с одного конца. 
 // В очередь добавлять элементы можно только с одно конца а удалять – только с другого. 
-// Структура данных на psdftvfz деком (Deque), позволяет добавлять и удалять элементы с обоих концов. 
+// Структура данных называется деком (Deque), позволяет добавлять и удалять элементы с обоих концов. 
 // Реализуйте дек на базе массива таким образом чтобы операции добавления и удаления элемента с каждого концов занимало время О(1)
 
+function deque (arr = [1,2,3,4]){
+    arr.shift()
+    arr.unshift(9)
+    arr.pop()
+    arr.push(9)
+
+    return arr
+}
+
+deque()
 
 // 6.	Объясните как можно реализовать очередь на базе двух стеков. 
-// Каково время работы Exqueue  Dequeue при такой реализации?
+
+function twoStacksToQue (arr1 = [1,2,3,4], arr2 = [5,6,7,8]){
+    arr = [...arr1, ...arr2]
+
+    arr.push(9)
+    arr.shift()
+
+    return arr
+}
+
+twoStacksToQue()
 
 // 7.	Объясните, как реализовать стек на базе друх очередей. 
-// Каково время работы стековых операций?
+
+function twoStacksToQue (arr1 = [1,2,3,4], arr2 = [5,6,7,8]){
+    arr = [...arr1, ...arr2]
+
+    arr.push(9)
+    arr.pop()
+
+    return arr
+}
+
+twoStacksToQue()
