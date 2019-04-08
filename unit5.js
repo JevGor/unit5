@@ -17,6 +17,38 @@ function pushPopAlg (arr = []) {
 pushPopAlg()
 
 
+//push
+var stack = []
+var bobbler = 0
+
+function add (stack, x) {
+    stack[0] = bobbler
+    bobbler += 1
+    console.log (bobbler)
+
+    stack[bobbler] = x
+
+    return stack
+}
+add(stack, 4)
+
+//pop
+
+var stack = [1]
+var bobbler = 1
+
+function remove(stack) {
+    if (bobbler === 0) {
+        return "underflow"
+    } else {
+        bobbler -= 1
+        stack[bobbler] = [bobbler + 1]
+        return stack
+    }
+}
+
+remove(stack)
+
 // 2.	Как на базе одного массива А[1…n] реализовать две стека 
 // суммарной длины не больше n? Операции Push Pop должны выполняться за время О[1]
 
